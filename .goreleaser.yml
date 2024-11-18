@@ -1,0 +1,15 @@
+version: 2
+archives:
+  - name_template: "{{.Binary}}_{{.Os}}_{{.Arch}}"
+    format_overrides:
+    - goos: windows
+      format: zip
+builds:
+  - main: ./cmd/web/main.go
+    id: "cmd"
+    binary: hidrogonica
+    goos:
+      - linux
+      - windows
+    goarch:
+      - amd64
